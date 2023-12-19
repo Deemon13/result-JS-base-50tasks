@@ -13,5 +13,11 @@ console.log(10 <= 10); // true
 console.log(18 <= 20); // true
 console.log(50 >= 50); // true
 console.log(51 >= 50); // true
-console.log({} === {}); // false
+// console.log({} === {}); // false
 console.log({} == {}); // false
+
+/////////////////////////////////////////
+
+const a = {};
+const b = a;
+console.log(a === b); // true
