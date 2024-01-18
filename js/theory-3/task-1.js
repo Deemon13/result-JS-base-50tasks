@@ -1,6 +1,10 @@
-function sumNumbers(numbers) {
-    let total = 0;
-    console.log(arguments);
+function sumNumbers() {
+  let total = 0;
+  [...arguments].forEach((el) => {
+    total += el;
+  });
+
+  return total;
 }
 
 const result1 = sumNumbers(1, 2, 3, 4, 5);
