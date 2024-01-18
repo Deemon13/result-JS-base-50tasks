@@ -1,0 +1,1 @@
+const sayHello = name => name ? `Hello, ${name}!` : `Hello, someone!`;
