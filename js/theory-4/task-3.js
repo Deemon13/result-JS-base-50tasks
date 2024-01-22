@@ -1,18 +1,22 @@
 function getTimeUntilDate(date) {
-  let currentDate = new Date();
-  let diff = date.getTime() - currentDate.getTime();
-  console.log("currentDate", currentDate, currentDate.getTime());
-  console.log("date", date, date.getTime());
-  let diffInDays = diff / (1000 * 60 * 60 * 24);
-  let diffInHours = diff / (1000 * 60 * 60);
-  let diffInMinutes = diff / (1000 * 60);
-  let diffInSeconds = diff / (1000);
+  const now = new Date();
+  const timeDifference = date.getTime() - now.getTime();
 
-  console.log("diff:", diff);
-  console.log("diffInDays:", diffInDays);
-  console.log("diffInHours:", diffInHours);
-  console.log("diffInMinutes:", diffInMinutes);
-  console.log("diffInSeconds:", diffInSeconds);
+  if (timeDifference < 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  const seconds = Math.floor(timeDifference / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  return {
+    days: days,
+    hours: hours % 24,
+    minutes: minutes % 60,
+    seconds: seconds % 60
+  };
 }
 
 const targetDate = new Date("2027-12-31T23:59:59");
